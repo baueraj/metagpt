@@ -1,0 +1,22 @@
+
+    sequenceDiagram
+        participant M as main
+        participant B as BaseNewsDomain
+        participant C as CNNNewsDomain
+        participant F as FoxNewsDomain
+        participant Bb as BBCNewsDomain
+        M->>B: instantiate BaseNewsDomain
+        B->>M: return instance
+        M->>C: instantiate CNNNewsDomain
+        C->>M: return instance
+        M->>F: instantiate FoxNewsDomain
+        F->>M: return instance
+        M->>Bb: instantiate BBCNewsDomain
+        Bb->>M: return instance
+        M->>C: call extract_headlines()
+        C->>M: return headlines
+        M->>F: call extract_headlines()
+        F->>M: return headlines
+        M->>Bb: call extract_headlines()
+        Bb->>M: return headlines
+    

@@ -1,0 +1,24 @@
+
+    classDiagram
+        class BaseNewsDomain{
+            +str url
+            +list headlines
+            +__init__(url: str)
+            +extract_headlines(): list
+        }
+        class CNNNewsDomain{
+            +__init__(url: str)
+            +extract_headlines(): list
+        }
+        class FoxNewsDomain{
+            +__init__(url: str)
+            +extract_headlines(): list
+        }
+        class BBCNewsDomain{
+            +__init__(url: str)
+            +extract_headlines(): list
+        }
+        BaseNewsDomain <|-- CNNNewsDomain
+        BaseNewsDomain <|-- FoxNewsDomain
+        BaseNewsDomain <|-- BBCNewsDomain
+    
