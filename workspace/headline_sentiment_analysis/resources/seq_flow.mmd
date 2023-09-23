@@ -1,0 +1,16 @@
+
+    sequenceDiagram
+        participant M as Main
+        participant DP as DOMParser
+        participant SA as SentimentAnalyzer
+        M->>DP: extract_headlines()
+        DP-->>M: return headlines
+        loop for each headline
+            M->>SA: analyze_sentiment()
+            SA-->>M: return sentiment_scores
+            Note over M: Check if sentiment is negative
+            alt if sentiment is negative
+                M->>M: hide headline
+            end
+        end
+    

@@ -1,0 +1,24 @@
+
+    classDiagram
+        class SentimentAnalyzer{
+            +str headline
+            +dict sentiment_scores
+            +__init__(headline: str)
+            +analyze_sentiment(): dict
+        }
+        class DOMParser{
+            +str html
+            +list headlines
+            +__init__(html: str)
+            +extract_headlines(): list
+        }
+        class Main{
+            +str url
+            +DOMParser dom_parser
+            +SentimentAnalyzer sentiment_analyzer
+            +__init__(url: str)
+            +hide_negative_headlines(): None
+        }
+        Main "1" -- "1" DOMParser: uses
+        Main "1" -- "1" SentimentAnalyzer: uses
+    
